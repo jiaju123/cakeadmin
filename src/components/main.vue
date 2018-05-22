@@ -41,6 +41,16 @@
                             <router-link to="/orders">订单管理</router-link>
                         </template>
                     </el-submenu>
+                    <el-submenu index="6">
+                        <template slot="title"><i class="el-icon-edit-outline"></i>
+                            <router-link to="/">地址管理</router-link>
+                        </template>
+                    </el-submenu>
+                    <el-submenu index="7">
+                        <template slot="title"><i class="el-icon-edit-outline"></i>
+                            <router-link to="/">用户管理</router-link>
+                        </template>
+                    </el-submenu>
                 </el-menu>
             </el-aside>
             <el-container>
