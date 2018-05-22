@@ -4,11 +4,13 @@ import Login from '@/components/login/login'
 import Car from '@/components/car/car'
 import Category from '@/components/category/category'
 import Goods from '@/components/goods/goods'
+import Goodadd from '@/components/goods/goodadd'
+import Goodedit from '@/components/goods/goodedit'
 import User from '@/components/user/user'
 import Main from '@/components/main'
 import Address from '@/components/address/address'
 import Orders from '@/components/orders/orders'
-import Suser from '@/components/Suser/suser'
+import Suser from '@/components/suser/suser'
 
 Vue.use(Router);
 
@@ -33,6 +35,14 @@ export default new Router({
               {
                   path: '/goods',
                   component: Goods
+              },
+              {
+                path:'/goodadd',
+                  component:Goodadd
+              },
+              {
+                  path:'/goodedit',
+                  component:Goodedit
               },
               {
                   path: '/orders',

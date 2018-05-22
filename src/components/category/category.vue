@@ -2,10 +2,10 @@
     <el-table
             :data="tableData"
             style="width: 100%">
-        <el-table-column
-                type="index"
-                index="">
-        </el-table-column>
+        <!--<el-table-column-->
+                <!--type="index"-->
+                <!--index="">-->
+        <!--</el-table-column>-->
         <el-table-column
                 label="名称"
                 width="180">
@@ -17,9 +17,11 @@
         </el-table-column>
         <el-table-column label="操作">
             <template slot-scope="scope">
-                <el-button
-                        size="mini"
-                        @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                <el-button size="mini">
+                    <router-link>
+                        编辑
+                    </router-link>
+                </el-button>
                 <el-button
                         size="mini"
                         type="danger"
@@ -36,10 +38,12 @@
                 tableData: []
             }
         },
+        created(){
+            this.$http.get('/api/admin/category').then(res=>{
+                console.log(res);
+            })
+        },
         methods: {
-            handleEdit(index, row) {
-                console.log(index, row);
-            },
             handleDelete(index, row) {
                 console.log(index, row);
             }
