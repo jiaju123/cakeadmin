@@ -9,6 +9,9 @@
 
             }
         },
+        created(){
+
+        }
     }
 </script>
 <style scoped lang='scss'>

@@ -13,7 +13,7 @@
                 </el-header>
             </el-container>
         </div>
-        <el-container style="height: 560px; border: 1px solid #eee">
+        <el-container style="height: 550px; border: 1px solid #eee">
             <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
                 <el-menu :default-openeds="['1', '3']">
                     <el-submenu index="1">
@@ -42,13 +42,13 @@
                         </template>
                     </el-submenu>
                     <el-submenu index="6">
-                        <template slot="title"><i class="el-icon-edit-outline"></i>
-                            <router-link to="/">地址管理</router-link>
+                        <template slot="title"><i class="el-icon-location"></i>
+                            <router-link to="/address">地址管理</router-link>
                         </template>
                     </el-submenu>
                     <el-submenu index="7">
-                        <template slot="title"><i class="el-icon-edit-outline"></i>
-                            <router-link to="/">用户管理</router-link>
+                        <template slot="title"><i class="el-icon-view"></i>
+                            <router-link to="/suser">用户管理</router-link>
                         </template>
                     </el-submenu>
                 </el-menu>
@@ -59,6 +59,9 @@
                 </el-main>
             </el-container>
         </el-container>
+
+
+
     </div>
 </template>
 <script>
@@ -90,5 +93,6 @@
         display: inline-block;
         height: 100%;
         width: auto;
+        text-decoration: none;
     }
 </style>
