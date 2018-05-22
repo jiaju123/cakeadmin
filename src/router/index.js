@@ -8,6 +8,7 @@ import User from '@/components/user/user'
 import Main from '@/components/main'
 import Address from '@/components/address/address'
 import Orders from '@/components/orders/orders'
+import Suser from '@/components/Suser/suser'
 
 Vue.use(Router);
 
