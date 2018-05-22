@@ -24,8 +24,13 @@
         data(){
             return {
 
+
             }
-        }
+
+        },
+      created(){
+
+      }
     }
 </script>
 <style scoped lang='scss'>

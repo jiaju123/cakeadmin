@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "element-react": "^1.4.19",
     "element-ui": "^2.3.9",
     "vue": "^2.5.2",
     "vue-resource": "^1.5.1",
