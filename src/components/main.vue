@@ -7,7 +7,7 @@
                     <el-dropdown style="float: right">
                         <i class="el-icon-setting" style="margin-right: 15px"></i>
                         <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item>退出登录</el-dropdown-item>
+                            <el-dropdown-item @click="">退出登录</el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
                 </el-header>

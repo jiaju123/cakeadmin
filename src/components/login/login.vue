@@ -40,7 +40,7 @@
                         "content-type": 'application/json'
                     }
                 }).then(res => {
-                console.log(res);
+//                console.log(res);
                     if (res.body!= 'ok') {
                         alert(res.body)
                     } else {
