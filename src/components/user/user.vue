@@ -92,7 +92,7 @@
                                 this.$message("修改成功");
                                 this.$refs[formName].resetFields();
                                 setTimeout(()=> {
-                                    this.$router.push("/main");
+                                    this.$router.push("/");
                                 },1000)
                             }else{
                                 this.$message("修改失败");
@@ -111,7 +111,6 @@
         created(){
             this.$http.get('/api/admin/user').then(response => {
                 this.data= response.body[0];
-                console.log(this.data.pass);
             });
         }
     }

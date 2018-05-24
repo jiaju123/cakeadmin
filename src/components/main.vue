@@ -5,9 +5,9 @@
                 <el-header>
                     <span style="color: #fff">欢迎登陆后台</span>
                     <el-dropdown style="float: right">
-                        <i class="el-icon-setting" style="margin-right: 15px"></i>
+                        <span style="margin-right: 15px">{{zhanghao}}</span>
                         <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item @click="">退出登录</el-dropdown-item>
+                            <el-button type="text" @click="exit" class="name">退出登录</el-button>
                         </el-dropdown-menu>
                     </el-dropdown>
                 </el-header>
@@ -59,9 +59,6 @@
                 </el-main>
             </el-container>
         </el-container>
-
-
-
     </div>
 </template>
 <script>
@@ -69,8 +66,42 @@
         name: 'my-main',
         data(){
             return {
-
+                zhanghao:"",
             }
+        },
+        methods:{
+            exit(){
+                this.$confirm('是否退出本系统', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning',
+                    center: true
+                }).then(() => {
+                   this.$http.get("/api/admin/main/exit").then(res=>{
+                       if(res.body=='edit'){
+                           this.$router.push('/')
+                       }
+                   });
+                    this.$message({
+                       type:'success',
+                        message:'退出登录',
+                        showClose:true,
+                    })
+                });
+
+            },
+        },
+        beforeRouteEnter(to, from, next){
+            next(vm=>{
+                vm.$http.get('/api/admin/main/us').then(res => {
+                    if(res.body=='no'){
+                        vm.$message.error('请先登录')
+                        vm.$router.push('/')
+                    }else{
+                        vm.zhanghao=res.body
+                    }
+                })
+            })
         }
     }
 </script>
@@ -83,6 +114,12 @@
         background-color: #B3C0D1;
         color: #333;
         line-height: 60px;
+    }
+    .el-button{
+        display: block;
+        width: auto;
+        height: 36px;
+        padding:0 20px;
     }
     .el-aside {
         color: #333;
