@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Login from '@/components/login/login'
 import Car from '@/components/car/car'
 import Category from '@/components/category/category'
+import Cateadd from '@/components/category/cateadd'
+import Cateedit from '@/components/category/cateedit'
 import Goods from '@/components/goods/goods'
 import Goodadd from '@/components/goods/goodadd'
 import Goodedit from '@/components/goods/goodedit'
@@ -31,6 +33,14 @@ export default new Router({
               {
                   path: '/category',
                   component: Category
+              },
+              {
+                  path: '/cateedit/:id',
+                  component: Cateedit
+              },
+              {
+                  path: '/cateadd',
+                  component: Cateadd
               },
               {
                   path: '/goods',
