@@ -7,6 +7,11 @@
         <el-table-column fixed prop="id" label="ID"
                          width="255">
         </el-table-column>
+            <el-table-column
+                    prop="nickname"
+                    label="昵称"
+                    width="255">
+            </el-table-column>
         <el-table-column
                 prop="zhanghao"
                 label="用户名"
@@ -17,11 +22,7 @@
                 label="密码"
                 width="255">
         </el-table-column>
-        <el-table-column
-                prop="nickname"
-                label="昵称"
-                width="255">
-        </el-table-column>
+
     </el-table>
     </div>
 

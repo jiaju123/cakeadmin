@@ -6,23 +6,18 @@
                     style="width: 100%">
                 <el-table-column
                         fixed
-                        prop="date"
-                        label="日期"
+                        prop="id"
+                        label="ID"
                         width="150">
                 </el-table-column>
                 <el-table-column
                         prop="name"
-                        label="姓名"
-                        width="120">
-                </el-table-column>
-                <el-table-column
-                        prop="province"
-                        label="省份"
+                        label="收货人姓名"
                         width="120">
                 </el-table-column>
                 <el-table-column
                         prop="city"
-                        label="市区"
+                        label="省市区"
                         width="120">
                 </el-table-column>
                 <el-table-column
@@ -31,29 +26,39 @@
                         width="300">
                 </el-table-column>
                 <el-table-column
-                        prop="zip"
+                        prop="tel"
+                        label="电话"
+                        width="120">
+                </el-table-column>
+                <el-table-column
+                        prop="zipcode"
                         label="邮编"
                         width="120">
                 </el-table-column>
                 <el-table-column
-                        fixed="right"
-                        label="操作"
-                        width="100">
-                    <template slot-scope="scope">
-                        <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
-                        <el-button type="text" size="small">编辑</el-button>
-                    </template>
+                        prop="nickname"
+                        label="用户名"
+                        width="120">
                 </el-table-column>
             </el-table>
         </div>
 </template>
 <script>
     export default{
-        name: 'orders',
+        name: 'add',
         data(){
-            return {}
+            return {
+                tableData:[]
+            }
+        },
+        created(){
+            this.$http.get("/api/admin/address").then(res=>{
+                console.log(res);
+                this.tableData=res.body;
+            })
         }
     }
 </script>
 <style scoped lang='scss'>
+
 </style> 
