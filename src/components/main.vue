@@ -18,7 +18,7 @@
                 <el-menu :default-openeds="['1', '3']">
                     <el-submenu index="1">
                         <template slot="title"><i class="el-icon-edit"></i>
-                            <router-link to="/user">修改密码</router-link>
+                            <router-link to="/suser">修改密码</router-link>
                         </template>
                     </el-submenu>
                     <el-submenu index="2">
@@ -48,7 +48,7 @@
                     </el-submenu>
                     <el-submenu index="7">
                         <template slot="title"><i class="el-icon-view"></i>
-                            <router-link to="/suser">用户管理</router-link>
+                            <router-link to="/user">用户管理</router-link>
                         </template>
                     </el-submenu>
                 </el-menu>

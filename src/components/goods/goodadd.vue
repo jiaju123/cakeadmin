@@ -106,15 +106,26 @@
     <el-form-item label="折扣价">
       <el-input v-model="form.priceo"></el-input>
     </el-form-item>
-
-
+    <el-form-item label="标题1">
+      <el-input v-model="form.title1"></el-input>
+    </el-form-item>
+    <el-form-item label="标题2">
+      <el-input v-model="form.title2"></el-input>
+    </el-form-item>
+    <el-form-item label="标题3">
+      <el-input v-model="form.title3"></el-input>
+    </el-form-item>
+    <el-form-item label="标题4">
+      <el-input v-model="form.title4"></el-input>
+    </el-form-item>
     <el-form-item label="cid">
       <el-input v-model="form.cid"></el-input>
     </el-form-item>
 
 
     <el-form-item>
-      <el-button type="primary" @click="onSubmit">添加</el-button>
+      <el-button type="primary" @click="onSubmit('form')">立即添加</el-button>
+      <!--<el-button @click="resetForm('form')">重置</el-button>-->
     </el-form-item>
   </el-form>
 </template>
@@ -136,6 +147,10 @@
           taste2: '',
           taste3: '',
           taste4: '',
+          title1:'',
+          title2:'',
+          title3:'',
+          title4:'',
           cid: '',
           xiangqing: []
         }
@@ -172,25 +187,38 @@
       handleSuccess5(response,file,desc5) {
         this.form.xiangqing=desc5;
       },
-      onSubmit(){
-        let obj=Object.assign({},this.form);
-        console.log(obj);
-        obj.desc1=JSON.stringify(obj.desc1);
-        obj.desc2=JSON.stringify(obj.desc2);
-        obj.desc3=JSON.stringify(obj.desc3);
-        obj.desc4=JSON.stringify(obj.desc4);
-        obj.xiangqing=JSON.stringify(obj.xiangqing);
-
-
-        this.$http.post('/api/admin/goods/add',obj, {
-            headers:{"content-type":"appliction/json"
-            }
-        }).then(function (res) {
-            console.log(res);
-
+      onSubmit(formName) {
+        this.$refs[formName].validate((res) => {
+          if (res) {
+            let obj = Object.assign({},this.form);
+            obj.desc1=JSON.stringify(obj.desc1);
+            obj.desc2=JSON.stringify(obj.desc2);
+            obj.desc3=JSON.stringify(obj.desc3);
+            obj.desc4=JSON.stringify(obj.desc4);
+            obj.xiangqing=JSON.stringify(obj.xiangqing);
+            this.$http.post('/api/admin/goods/add',obj,{
+              headers:{
+                "content-type":"application/json"
+              }
+            }).then(response => {
+              if (response.body){
+                this.$message('添加成功！');
+                setTimeout(()=>{
+                  this.$router.push("/goods");
+                },1000);
+              }else{
+                this.$message('添加失败！');
+              }
+            });
+          } else {
+            this.$message('操作失败！');
+            return false;
+          }
         });
-
       },
+//      resetForm(formName) {
+//        this.$refs[formName].resetFields();
+//      },
 
     }
   }

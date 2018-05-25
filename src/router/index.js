@@ -8,18 +8,18 @@ import Cateedit from '@/components/category/cateedit'
 import Goods from '@/components/goods/goods'
 import Goodadd from '@/components/goods/goodadd'
 import Goodedit from '@/components/goods/goodedit'
-import User from '@/components/user/user'
+import User from '@/components/suser/suser'
 import Main from '@/components/main'
 import Address from '@/components/address/address'
 import Orders from '@/components/orders/orders'
-import Suser from '@/components/suser/suser'
+import Suser from '@/components/user/user'
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
       {
-        path: '/',
+        path: '/admin',
         component: Login
       },
       {
@@ -59,7 +59,7 @@ export default new Router({
                   component: Orders
               },
               {
-                  path: '/user',
+                  path: '/suser',
                   component: User
               },
               {
@@ -67,7 +67,7 @@ export default new Router({
                   component: Address
               },
               {
-                  path: '/suser',
+                  path: '/user',
                   component: Suser
               },
           ]

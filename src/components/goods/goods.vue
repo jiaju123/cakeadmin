@@ -1,4 +1,6 @@
 <template>
+  <div>
+    <router-link to="/goodadd" class="cateaddbox">新增+</router-link>
   <el-table
             :data="tableData"
     style="width: 100%">
@@ -47,20 +49,20 @@
       </template>
     </el-table-column>
     <el-table-column
-      prop="desc1"
-      label="描述1"
+      prop="cid"
+      label="CID"
       width="180">
       <template slot-scope="scope">
         <div slot="reference" class="name-wrapper">
-          <el-tag size="medium">{{ scope.row.desc1 }}</el-tag>
+          <el-tag size="medium">{{ scope.row.cid }}</el-tag>
         </div>
       </template>
     </el-table-column>
 
     <el-table-column label="操作">
       <template slot-scope="scope">
-        <el-button size="mini" @click="handleClick(scope.row)">
-          编辑
+        <el-button type="primary" size="mini" @click="handleEdit(scope.$index, scope.row.id)">
+          <router-link :to="'/goodedit?id='+scope.row.id">编辑</router-link>
         </el-button>
         <el-button
           size="mini"
@@ -70,6 +72,7 @@
     </el-table-column>
 
   </el-table>
+  </div>
 </template>
 <script>
   export default{
@@ -99,10 +102,7 @@
         });
       },
 
-      handleClick(row) {
-        let id=row.id;
-        this.$router.push(`/goodedit?id=${id}`);
-      }
+
 
     }
   }

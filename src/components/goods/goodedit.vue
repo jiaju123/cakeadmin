@@ -106,6 +106,18 @@
     <el-form-item label="折扣价">
       <el-input v-model="form.priceo"></el-input>
     </el-form-item>
+    <el-form-item label="标题1">
+      <el-input v-model="form.title1"></el-input>
+    </el-form-item>
+    <el-form-item label="标题2">
+      <el-input v-model="form.title2"></el-input>
+    </el-form-item>
+    <el-form-item label="标题3">
+      <el-input v-model="form.title3"></el-input>
+    </el-form-item>
+    <el-form-item label="标题4">
+      <el-input v-model="form.title4"></el-input>
+    </el-form-item>
 
 
     <el-form-item label="cid">
@@ -115,7 +127,6 @@
 
     <el-form-item>
       <el-button type="primary" @click="submitForm('form')">立即创建</el-button>
-      <el-button @click="resetForm('form')">重置</el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -138,51 +149,19 @@
           taste2: '',
           taste3: '',
           taste4: '',
+          title1:'',
+          title2:'',
+          title3:'',
+          title4:'',
           cid: '',
           xiangqing: []
         },
-        rules: {
-          name: [
-            {required: true, message: '请输入产品名称', trigger: 'blur'},
-            {min: 1, max: 100, message: '长度在 1 到 100 个字符', trigger: 'blur'}
-          ],
-          desc1: [
-            {required: true, message: '请输入产品价格', trigger: 'blur'},
-            {min: 1, max: 5, message: '长度在 1 到 5 个字符', trigger: 'blur'}
-          ],
-          desc2: [
-            {required: true, message: '请输入产品数量', trigger: 'blur'},
-            {min: 1, max: 5, message: '长度在 1 到 5 个字符', trigger: 'blur'}
-          ],
-          desc3: [
-            {required: true, message: '请输入产品名称', trigger: 'blur'},
-            {min: 1, max: 100, message: '长度在 1 到 100 个字符', trigger: 'blur'}
-          ],
-          desc4: [
-            {required: true, message: '请输入产品名称', trigger: 'blur'},
-            {min: 1, max: 100, message: '长度在 1 到 100 个字符', trigger: 'blur'}
-          ],
-          pricen: [
-            {required: true, message: '请输入产品名称', trigger: 'blur'},
-            {min: 1, max: 100, message: '长度在 1 到 100 个字符', trigger: 'blur'}
-          ],
-          priceo: [
-            {required: true, message: '请输入产品名称', trigger: 'blur'},
-            {min: 1, max: 100, message: '长度在 1 到 100 个字符', trigger: 'blur'}
-          ],
-          cid: [
-            {required: true, message: '请输入产品名称', trigger: 'blur'},
-            {min: 1, max: 100, message: '长度在 1 到 100 个字符', trigger: 'blur'}
-          ]
-        }
-
       };
 
     },
 
 
     created(){
-
       let id  = this.$route.query.id;
       this.$http.get(`/api/admin/goods/edit?id=${id}` ).then(res=>{
         this.form.id = res.body[0].id;
@@ -193,6 +172,11 @@
         this.form.taste2 = res.body[0].taste2;
         this.form.taste3 = res.body[0].taste3;
         this.form.taste4 = res.body[0].taste4;
+
+        this.form.title1 = res.body[0].title1;
+        this.form.title2 = res.body[0].title2;
+        this.form.title3 = res.body[0].title3;
+        this.form.title4 = res.body[0].title4;
 
         this.form.cid = res.body[0].cid;
         this.form.desc1 = JSON.parse( res.body[0].desc1 );
@@ -205,6 +189,7 @@
     },
 
     methods: {
+
       handleRemove(file, desc1) {
         this.form.desc1=desc1;
       },
@@ -265,8 +250,6 @@
           }
         });
       },
-
-
     }
   }
 </script>
