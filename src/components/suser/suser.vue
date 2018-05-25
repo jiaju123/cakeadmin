@@ -1,30 +1,4 @@
 <template>
-<<<<<<< HEAD
-    <div>z
-        <el-table
-            :data="tableData4"
-            style="width: 100%"
-            max-height="255">
-        <el-table-column fixed prop="id" label="ID"
-                         width="255">
-        </el-table-column>
-        <el-table-column
-                prop="zhanghao"
-                label="用户名"
-                width="255">
-        </el-table-column>
-        <el-table-column
-                prop="pass"
-                label="密码"
-                width="255">
-        </el-table-column>
-        <el-table-column
-                prop="nickname"
-                label="昵称"
-                width="255">
-        </el-table-column>
-    </el-table>
-=======
     <div id="adminbox">
         <h3>管理员管理</h3>
         <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
@@ -42,7 +16,6 @@
                 <!--<el-button @click="reset('ruleForm2')">重置</el-button>-->
             </el-form-item>
         </el-form>
->>>>>>> c342db8f8fcc194bb61450522ac0f4b4bc9968f8
     </div>
 </template>
 <script>
@@ -143,9 +116,5 @@
     }
 </script>
 <style scoped lang='scss'>
-<<<<<<< HEAD
-</style>
-=======
 
 </style> 
->>>>>>> c342db8f8fcc194bb61450522ac0f4b4bc9968f8
