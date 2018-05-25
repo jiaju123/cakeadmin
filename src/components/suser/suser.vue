@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div>z
         <el-table
             :data="tableData4"
             style="width: 100%"
@@ -48,4 +48,4 @@
     }
 </script>
 <style scoped lang='scss'>
-</style> 
+</style>
