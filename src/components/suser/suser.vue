@@ -92,7 +92,7 @@
                                 this.$message("修改成功");
                                 this.$refs[formName].resetFields();
                                 setTimeout(()=> {
-                                    this.$router.push("/");
+                                    this.$router.push("/admin");
                                 },1000)
                             }else{
                                 this.$message("修改失败");
